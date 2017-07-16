@@ -2,6 +2,11 @@
 
 CONFIG=/etc/systemd/x-email.conf
 
+if [ -z "$1" ]; then
+  echo "Usage: systemd-email <systemd unit> [<exit code>]"
+  exit 10;
+fi
+
 if [ -f "$CONFIG" ]; then
   . "$CONFIG"
 fi
